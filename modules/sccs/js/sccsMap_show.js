@@ -173,10 +173,10 @@ qsDataAnalysisApp.controller("qsSccsShowMapController", ["$scope", "$http", "$ro
             item.itemStyle = {
                 normal: {
                     //areaColor:colors[ind],
-                    areaColor: 'rgba(0,0,0,0.4)',
+                    areaColor: '#243d68',
                     //opacity:0.4,
                     borderWidth: 1,
-                    borderColor: '#222'
+                    borderColor: '#00083e'
                 },
                 emphasis: {
                     areaColor: "#f89367",
@@ -196,6 +196,7 @@ qsDataAnalysisApp.controller("qsSccsShowMapController", ["$scope", "$http", "$ro
                 emphasis: {
                     textStyle:{
                         fontWeight:"bold",
+                        fontColor:"#fff",
                         fontSize:20
                     }
 
