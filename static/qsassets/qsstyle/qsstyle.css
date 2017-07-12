@@ -1,0 +1,191 @@
+.scscProvincePage,.scscCityDetail{
+    padding-top:40px;
+}
+.scscCityDetail h1{ margin-bottom: 20px; }
+
+@-webkit-keyframes STAR-MOVE {
+    from {
+        background-position: 0% 0%
+    }
+    to {
+        background-position: 100% 600%
+    }
+}
+
+@keyframes STAR-MOVE {
+    from {
+        background-position: 0% 0%
+    }
+    to {
+        background-position: 100% 600%
+    }
+}
+
+
+
+.dashboard-map {
+    width: 100%;
+
+}
+
+/*div#background {*/
+
+    /*!*background-size: cover;*!*/
+    /*-webkit-animation: STAR-MOVE 200s linear infinite;*/
+    /*-moz-animation: STAR-MOVE 200s linear infinite;*/
+    /*-ms-animation: STAR-MOVE 200s linear infinite;*/
+    /*animation: STAR-MOVE 200s linear infinite;*/
+/*}*/
+
+/*div#midground {*/
+    /*!*background:url('/qskj-pro/qssc/src/main/webapp/views/app/images/midground.png')repeat 20% 0%;*!*/
+    /*background: url('images/midground.png') repeat 20% 0%;*/
+    /*z-index: 1;*/
+    /*-webkit-animation: STAR-MOVE 100s linear infinite;*/
+    /*-moz-animation: STAR-MOVE 100s linear infinite;*/
+    /*-ms-animation: STAR-MOVE 100s linear infinite;*/
+    /*animation: STAR-MOVE 100s linear infinite;*/
+/*}*/
+
+/*div#foreground {*/
+    /*!*background:url('/qskj-pro/qssc/src/main/webapp/views/app/images/foreground.png')repeat 35% 0%;*!*/
+    /*background: url('images/foreground.png') repeat 35% 0%;*/
+    /*z-index: -1;*/
+    /*-webkit-animation: STAR-MOVE 50s linear infinite;*/
+    /*-moz-animation: STAR-MOVE 50s linear infinite;*/
+    /*-ms-animation: STAR-MOVE 50s linear infinite;*/
+    /*animation: STAR-MOVE 50s linear infinite;*/
+/*}*/
+
+.wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -10;
+
+}
+
+a:link, a:visited {
+    color: #FFF;
+    text-decoration: none;
+    outline: none;
+}
+
+.center {
+    width: 80%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+}
+
+.comparisonMenu {
+    width: 110px;
+    border: 1px solid #000;
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    margin-top:-97px;
+    z-index: 1000000;
+    background-color: rgba(0, 0, 0, 0.5)
+
+}
+.comparisonMenu a{ cursor: pointer; padding: 5px;}
+
+.nearLeft {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 120px;
+    min-height: 260px;
+    float: left;
+    padding: 10px;
+    position: absolute;
+    left: 400px;
+    top: 40px;
+    color: whitesmoke;
+}
+
+.list-group-item {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+a.list-group-item {
+    color: whitesmoke;
+}
+
+a.selectMode {
+    color: whitesmoke;
+}
+
+.selectMode {
+    width: 150px;  position: absolute;  right: -85px;  top: 490px;
+    color: #fff;  margin-top:-135px; z-index: 1000000; text-align: center;}
+.selectMode h3{ font-size: 20px; text-align: left; margin-left:-120px; margin-bottom: 20px; height:110px;}
+.selectMode .line{ border-left: 3px solid #732163;}
+.selectMode .radio{ text-align: left; position: relative; margin:1px 0;}
+.selectMode .radio label{ position: absolute; top:0; left:0; height: 26px; line-height: 26px;
+    padding-left: 5px; margin: 0;
+}
+.selectMode .radio .radio-bg{ height:26px; width:0; transition:width 0.2s;}
+.selectMode .radio:hover .radio-bg,.selectMode .active .radio-bg{ width: 100%; }
+.selectMode .radio input[type="radio"]{ position: relative; margin-left: -10px;}
+.selectMode .active{ color:#FFF;}
+
+.selectModeText{ position: absolute; top:10px; right:10px;
+    background:url("images/list_bcg.png") no-repeat;
+    width:210px;  height:177px;
+}
+.selectModeText h2{ font-size: 14px; line-height: 34px; padding-left:20px;    color:#FFF;}
+
+.provinceIndexTrendDiv {
+    width: 800px;
+    height: 300px;
+}
+
+.provinceMap {
+    height: 430px;
+}
+
+.provinceSummary {
+    height: 430px;
+}
+
+.chart-item {
+
+    height: 250px;
+    margin-bottom: 25px;
+    background: rgba(0,0,0,0.3) !important;
+
+}
+
+.bg-grey {
+    margin-left: -300px;
+    margin-right: -300px;
+    background-image: -webkit-linear-gradient(to bottom, rgba(15, 34, 86, 1), rgba(29, 79, 149, 1));
+    background-image: linear-gradient(to bottom, rgba(15, 34, 86, 1), rgba(29, 79, 149, 1));
+}
+
+#nav-title {
+    position: absolute;
+    left: 50px;
+    top: 10px
+}
+
+.duoMap div{ margin-bottom:30px;}
+
+.city_detail_table .panel{ background: none; color: #FFF;}
+.table-striped > tbody > tr:nth-of-type(odd){
+    background: none;
+}
+.city_detail_table table{color: #FFF;background: rgba(0,0,0,0.3) !important;}
+.city_detail_table .nav-tabs{ border-bottom: none;}
+.dataTables_paginate{ text-align: center;}
+.city_detail_table table a{ color:rgba(255,175,0,1);}
+.city_detail_table table a:hover{ color:rgba(255,175,0,0.7);}
+.city_detail_table .panel-default{ border: none;}
+
+
+
+.main-map{ position: relative; height:100%; width:100%;}

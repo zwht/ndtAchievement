@@ -1,0 +1,21 @@
+<div class="main-map" ng-controller="qsSccsShowMapController">
+    <div>
+        <div class="move-tab com-tab" ng-style="style01" ng-click="stop($event)">
+            <h2 ng-bind="newData.name"></h2>
+
+            <div>
+                <p>数据展示1:<span>{{newData.value }}</span></p>
+
+                <p> 数据展示2:<span>{{newData.value*8}}</span></p>
+
+                <p>数据展示3:<span>{{newData.value/10}}亿</span></p>
+            </div>
+            <div class="go-map" ng-click="goMap(newData.data.name)">查看详情&nbsp;&gt;</div>
+        </div>
+        <div class="move-tab-line" ng-style="style02" ng-click="stop($event)"></div>
+        <div class="move-tab-line1" ng-style="style03" ng-click="stop($event)"></div>
+    </div>
+
+    <div id="mainChart" style="height:750px; " class="dashboard-map"></div>
+
+</div>

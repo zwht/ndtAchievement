@@ -1,0 +1,14 @@
+{
+  "name": "ndt",
+  "version": "0.0.1",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "http-proxy-middleware": "^0.17.0",
+    "browser-sync": "^2.14.0"
+  },
+  "scripts": {
+    "start": "gulp"
+  }
+}
