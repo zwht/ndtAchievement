@@ -19,7 +19,7 @@ qsDataAnalysisApp.controller("qsScscProvinceController",
 
 
             function intMap() {
-                $.getJSON('./modules/sccs/js/' + 'qingyang' + '.json', function (data) {
+                $.getJSON('./static/datas/' + 'qingyang' + '.json', function (data) {
                     echarts.registerMap('qingyang', data);
 
 

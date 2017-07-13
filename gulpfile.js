@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var browserSync = require("browser-sync").create();//设置代理
 var proxyMiddleware = require('http-proxy-middleware');
 
-var FOLDER='./';
+var FOLDER='./src/';
 var SERVER_PORT=9999;
 var SERVER_PROXY = "http://www.iclassedu.com";
 

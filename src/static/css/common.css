@@ -1,0 +1,24 @@
+.nav-head{ position: absolute; z-index: 999; top:0; left:0; right: 0; height:100px; background:rgba(0,0,0,0.3); color:#fff;}
+.nav-head .logo{ width:100px; padding:10px; position: absolute; top:0;}
+.nav-head .logo img{ width:250px;}
+.nav-head .big-title{ height:100px; text-align: center; font-size: 40px; line-height: 100px;}
+
+
+
+.move-tab,.move-tab-line,.move-tab-line1{ position: absolute; top:400px; left:700px;
+    transition: top 0.5s, left 0.5s; display: none;z-index: 55;}
+.move-tab{width: 200px; height:180px; background:rgba(0,0,0,.7); color:#FFF;
+     border: 1px solid #fff; border-radius: 6px; }
+.com-tab{ width:200px;}
+.move-tab h2{ color: #FFF; line-height: 32px; font-size: 24px; margin:20px 0;  text-align: center}
+.move-tab p{ font-size: 18px; margin: 0; padding: 0 6px; padding-left:20px;}
+.move-tab p span{color:#ffa300}
+.go-map{ cursor: pointer; text-align: center; margin-top: 5px; color:#FFF; }
+.go-map:hover{ color: #ffa300;}
+
+.move-tab-line{width: 100px; height:1px; border-top: 1px solid #FFF;}
+.move-tab-line:before,.move-tab-line.p-left:before{ content: ""; display: inline-block; width:6px; height:6px; border-radius: 3px;
+background: #FFF; position: absolute; left:0; top:-3px;}
+.move-tab-line.p-left:before{ right:0; left: auto;}
+.move-tab-line1{width: 1px; height:20px; border-left: 1px solid #FFF;}
+

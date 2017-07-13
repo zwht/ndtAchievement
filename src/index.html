@@ -9,18 +9,18 @@
     <title>农贷通-成果展示</title>
 
     <!--添加css3动画-->
-    <link rel="stylesheet" href="./static/qsassets/qsstyle/animate.css">
+    <link rel="stylesheet" href="./static/css/animate.css">
     <!--添加公共css-->
-    <link rel="stylesheet" href="./static/qsassets/qsstyle/common.css">
-    <link rel="stylesheet" href="./static/qsassets/qsstyle/qsstyle.css">
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/global.css">
+   
     <!--添加公司模块css-->
-    <link rel="stylesheet" href="./static/qsassets/qsstyle/addCompany.css">
-    <link rel="stylesheet" href="./static/qsassets/qsstyle/scscProvince.css">
+    <link rel="stylesheet" href="./static/css/scscProvince.css">
 
     <!-- 添加对jquery和angular的支持，均采用最新的版本 -->
-    <script src="./static/assets/jquery/jquery-2.2.1.min.js"></script>
-    <script src="./static/assets/angular/angular.js"></script>
-    <script src="./static/assets/echarts3/echarts.js"></script>scscProvince
+    <script src="./libs/jquery/jquery-2.2.1.min.js"></script>
+    <script src="./libs/angular/angular.js"></script>
+    <script src="./libs/echarts3/echarts.js"></script>scscProvince
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -54,30 +54,30 @@
 </script>
 <!-- Bottom Scripts -->
 <!--加入ui-router的支持库-->
-<script src="./static/assets/angular-ui/angular-ui-router.js"></script>
-<script src="./static/assets/angular-animate/angular-animate.min.js"></script>
-<script src="./static/assets/angular-ui/ui-bootstrap-tpls-1.2.5.js"></script>
-<script src="./static/assets/angular-popups/angular-popups.js"></script>
-<script src="./static/assets/ngStorage/ngStorage.js"></script>
+<script src="./libs/angular-ui/angular-ui-router.js"></script>
+<script src="./libs/angular-animate/angular-animate.min.js"></script>
+<script src="./libs/angular-ui/ui-bootstrap-tpls-1.2.5.js"></script>
+<script src="./libs/angular-popups/angular-popups.js"></script>
+<script src="./libs/ngStorage/ngStorage.js"></script>
 
 
 
 
 
 <!--业务描述开始-->
-<script src="./modules/commons/js/qsUtils.js"></script>
-<script src="./modules/commons/js/qsAnalysisApp.js"></script>
-<script src="./modules/commons/js/framework.js"></script>
+<script src="./apps/commons/qsUtils.js"></script>
+<script src="./apps/commons/main.js"></script>
+<script src="./apps/commons/framework.js"></script>
 
 
-<script src="./modules/sccs/js/sccsMap_show.js"></script>
-<script src="./modules/sccs/js/scscProvince.js"></script>
+<script src="./apps/controllers/sccsMapController.js"></script>
+<script src="./apps/controllers/scscProvince.js"></script>
 <!--引入添加公司controller-->
 
 
-<script src="./modules/directives/canvasStarry.js"></script>
+<script src="./apps/directives/canvasStarry.js"></script>
 
-<script src="./modules/plugin/backTop.js"></script>
+<script src="./plugins/backTop.js"></script>
 
 </body>
 </html>
