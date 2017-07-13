@@ -1,9 +1,8 @@
 var qsDataAnalysisApp = angular.module("qsDataAnalysisApp",[
     "ui.bootstrap",
     "ui.router",
-    "ngAnimate",
-    "ngStorage",
-    "qs.utils"
+    "ngResource",
+    "ngAnimate"
 ]);
 //
 
@@ -29,7 +28,7 @@ qsDataAnalysisApp.config(function($stateProvider, $urlRouterProvider,$httpProvid
         })
 
         .state('ndt.scscProvince', {
-            url: "/scscProvince/:province",
+            url: "/scscProvince/:name/:name1/:id",
             templateUrl:basePath+"/views/pages/scscProvince.html",
             controller:'qsScscProvinceController'
         })

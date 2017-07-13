@@ -1,12 +1,13 @@
 qsDataAnalysisApp.controller("qsScscProvinceController",
-    ["$scope", "$location", "$state", "$http", "$stateParams", "GotoService", "ComparisonManage", "$rootScope",
-        function ($scope, $location, $state, $http, $stateParams, GotoService, ComparisonManage, $rootScope) {
+    ["$scope", "$location", "$state", "$http", "$stateParams",  "$rootScope",
+        function ($scope, $location, $state, $http, $stateParams,  $rootScope) {
 
             $scope.pageClass = "scscProvincePage";
 
-            $rootScope.bigTitle = $scope.province = angular.fromJson($stateParams.province);
+            $rootScope.bigTitle = $stateParams.name;
+            $scope.mane1=$stateParams.name1
+            $scope.id=$stateParams.id
 
-            console.log(angular.fromJson($stateParams.province))
             intMap();
             intMap1();
             intMap2();
@@ -19,8 +20,8 @@ qsDataAnalysisApp.controller("qsScscProvinceController",
 
 
             function intMap() {
-                $.getJSON('./static/datas/' + 'qingyang' + '.json', function (data) {
-                    echarts.registerMap('qingyang', data);
+                $.getJSON('./static/datas/' + $scope.mane1 + '.json', function (data) {
+                    echarts.registerMap($scope.mane1, data);
 
 
                     var chart=echarts.init($('#provinceMap')[0]);
@@ -34,7 +35,7 @@ qsDataAnalysisApp.controller("qsScscProvinceController",
                         series: [{
                             name: "test",
                             type: 'map',
-                            map: 'qingyang',
+                            map: $scope.mane1,
                             roam: false,
                             zoom: 1,
                             scaleLimit: {

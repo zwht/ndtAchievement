@@ -1,6 +1,8 @@
-.nav-head{ position: absolute; z-index: 999; top:0; left:0; right: 0; height:100px; background:rgba(0,0,0,0.3); color:#fff;}
-.nav-head .logo{ width:100px; padding:10px; position: absolute; top:0;}
-.nav-head .logo img{ width:250px;}
+.nav-head{ position: absolute; z-index: 999; top:0; left:0; right: 0;
+     height:100px; background:rgba(0,0,0,0.3); color: rgba(255,194,0,1);}
+.nav-head .logo{ width:100px; padding:10px; position: absolute; top:0;
+}
+.nav-head .logo img{ width:250px; }
 .nav-head .big-title{ height:100px; text-align: center; font-size: 40px; line-height: 100px;}
 
 

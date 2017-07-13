@@ -1,16 +1,17 @@
 qsDataAnalysisApp.controller("sccsMapController",
-    ["$scope", "$http", "$rootScope", "$state", "ScscInstance",
-        function ($scope, $http, $rootScope, $state, ScscInstance) {
+    ["$scope", "$http", "$rootScope", "$state", "chartService",
+        function ($scope, $http, $rootScope, $state, chartService) {
             $rootScope.showChang = true;
             var mapChart;
             $rootScope.bigTitle = "农贷通-成果展示";
+            intMap1();
             intMap2();
-            intMap3();
             createMap();
 
-            $scope.goMap = function (name) {
-                var newName = angular.toJson(name);
-                $state.transitionTo("ndt.scscProvince", { province: newName });
+
+
+            $scope.goMap = function (data) {
+                $state.transitionTo("ndt.scscProvince", { name: data.name,name1:data.name1,id:data.id });
             }
 
             $scope.toProvince = function (event) {
@@ -49,113 +50,136 @@ qsDataAnalysisApp.controller("sccsMapController",
                 var arr = [
                     {
                         name: "天府新区",
+                        name1:"tianfu",
                         value: 3,
                         url: "510110"
                     },
                     {
                         name: "高新区",
+                        name1:"gaoxin",
                         value: 3,
                         url: "510199"
                     },
 
                     {
                         name: "双流区",
+                        name1:"shuangliu",
                         value: 3,
                         url: "510122"
                     },
                     {
                         name: "郫都区",
-                        value: 3, url: "510124"
+                        name1:"pidu",
+                        value: 3,
+                         url: "510124"
                     },
                     {
                         name: "青白江区",
+                        name1:"qingbai",
                         value: 3,
                         url: "510113"
                     },
                     {
                         name: "龙泉驿区",
+                        name1:"longquan",
                         value: 3,
                         url: "510112"
                     },
                     {
                         name: "温江区",
+                        name1:"wenjiang",
                         value: 3,
                         url: "510115"
                     },
                     {
                         name: "新都区",
+                        name1:"xindu",
                         value: 3,
                         url: "510114"
                     },
                     {
                         name: "崇州市",
+                        name1:"chonzhou",
                         value: 3,
                         url: "510184"
                     },
                     {
                         name: "彭州市",
+                        name1:"pengzhou",
                         value: 3,
                         url: "510182"
                     },
                     {
                         name: "都江堰市",
+                        name1:"dujiang",
                         value: 3,
                         url: "510181"
                     },
 
                     {
                         name: "邛崃市",
+                        name1:"qionglai",
                         value: 3,
                         url: "510183"
                     },
                     {
                         name: "新津县",
+                        name1:"xinjin",
                         value: 3,
                         url: "510132"
                     },
                     {
                         name: "蒲江县",
+                        name1:"pujiang",
                         value: 3,
                         url: "510131"
                     },
                     {
                         name: "大邑县",
+                        name1:"daba",
                         value: 3,
                         url: "510129"
                     },
                     {
                         name: "金堂县",
+                        name1:"jintang",
                         value: 3,
                         url: "510121"
                     },
                     {
                         name: "简阳市",
+                        name1:"jianyang",
                         value: 3,
                         url: "510188"
                     },
 
                     {
                         name: "金牛区",
+                        name1:"jingniu",
                         value: 1,
                         url: "510188"
                     },
                     {
                         name: "青羊区",
+                        name1:"qingyang",
                         value: 2,
                         url: "510188"
                     },
                     {
                         name: "锦江区",
+                        name1:"jinjiang",
                         value: 3,
                         url: "510188"
                     },
                     {
                         name: "武侯区",
+                        name1:"wuhou",
                         value: 3,
                         url: "510188"
                     },
                     {
                         name: "成华区",
+                        name1:"chenghua",
                         value: 3,
                         url: "510188"
                     }
@@ -298,7 +322,11 @@ qsDataAnalysisApp.controller("sccsMapController",
             }
 
 
-            function intMap3() {
+            function intMap2() {
+                getData('lendingSum', function (data1) {
+
+                    debugger
+                })
                 var jiaoyiTJ = echarts.init(document.getElementById('chart1'));
                 var jyOption = {
                     tooltip: {
@@ -356,61 +384,101 @@ qsDataAnalysisApp.controller("sccsMapController",
 
             }
 
-            function intMap2() {
-                var LeiJiXM = echarts.init(document.getElementById('chart2'));
+            function intMap1() {
+                getData('lendingAmt', function (data1) {
+                    var xData = [];
+                    var data = [];
+                    for (item in data1.data[0].keyvalues) {
+                        xData.push(item);
+                        data.push(data1.data[0].keyvalues[item])
+                    }
+                    var LeiJiXM = echarts.init(document.getElementById('chart2'));
 
-                var ljOption = {
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-                        }
-                    },
-                    
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        containLabel: true
-                    },
-                    xAxis: [{
-                        type: 'category',
-                        data: ['一月', '二月', '三月', '四月'],
-                        axisLabel: {
-                            textStyle: {
-                                color: "#fff"
-                            }
-                        }
-                    }],
-                    yAxis: [{
-                        type: 'value',
-                        axisLabel: {
-                            textStyle: {
-                                color: "#fff"
+                    var ljOption = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                             }
                         },
-                        splitLine: {
-                            show: false
-                        }
-                    }],
-                    series: [{
-                        name: '重点项目',
-                        type: 'bar',
-                        data: [320, 332, 301, 334]
-                    }, {
-                        name: '补贴项目',
-                        type: 'bar',
-                        data: [120, 132, 101, 134]
-                    }, {
-                        name: '申请融资项目',
-                        type: 'bar',
-                        data: [220, 182, 191, 234]
-                    }, {
-                        name: '融资成功项目',
-                        type: 'bar',
-                        data: [150, 232, 201, 154]
-                    }]
-                };
-                LeiJiXM.setOption(ljOption);
+
+                        grid: {
+                            left: '1%',
+                            right: '1%',
+                            bottom: '4%',
+                            top: '4%',
+                            containLabel: true
+                        },
+                        xAxis: [{
+                            type: 'category',
+                            data: xData,
+                            axisLabel: {
+                                textStyle: {
+                                    color: "#fff"
+                                }
+                            }
+                        }],
+                        yAxis: [{
+                            type: 'value',
+                            axisLabel: {
+                                textStyle: {
+                                    color: "#fff"
+                                }
+                            },
+                            splitLine: {
+                                show: false
+                            }
+                        }],
+                        series: [{
+                            name: '放款金额',
+                            type: 'bar',
+                            data: data
+                        }]
+                    };
+                    LeiJiXM.setOption(ljOption);
+                })
+
+            }
+
+
+            function getData(type, call) {
+                chartService.getChartData({}, { type: type },
+                    function (data) {
+                        call(data);
+                    }, function (err) {
+
+                    });
             }
         }]);
+
+function setValueUnite(v) {
+    var cs = 1, unit = "";
+    switch (type) {
+        case 4:
+            cs = 10000;
+            unit = '万';
+            break;
+        case 5:
+            cs = 100000;
+            unit = '十万';
+            break;
+        case 6:
+            cs = 1000000;
+            unit = '百万';
+            break;
+        case 7:
+            cs = 10000000;
+            unit = '千万';
+            break;
+        case 8:
+            cs = 100000000;
+            unit = '亿';
+            break;
+    }
+    if (v == '中文') {
+        return unit;
+    } else {
+        return parseFloat(v) / cs;
+    }
+
+}

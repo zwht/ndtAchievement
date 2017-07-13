@@ -3,10 +3,10 @@
 .scscProvince .item{ float: left; height: 400px;
      padding: 10px;
 }
-.scscProvince .item>div{ height: 100%; width: 100%; background: rgba(0,0,0,0.6);
+.scscProvince .item>div{ height: 100%; width: 100%; background: rgba(0,0,0,0.2);
      position: relative; padding-top: 40px;}
 .scscProvince .item>div h2{ position: absolute; top:0; left: 0; width: 100%;
-     background: rgba(0,0,0,0.3); font-size: 18px; color: #fff;
+     background: rgba(255,194,0,1); font-size: 18px; 
      line-height: 40px; padding-left: 20px;
 }
 .scscProvince .item>div>div{ height: 100%; width: 100%;}

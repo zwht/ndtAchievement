@@ -1,8 +1,19 @@
 .sccsMap{ height: 100%; width: 100%; position: relative;}
-.sccsMap #chart1{ height: 300px; width: 300px; position: absolute;
-  left:20px; top:20px; background: rgba(0,0,0,0.4);
+.sccsMap .chart1{ height: 300px; width: 300px; 
+  left:20px; top:20px; 
+}
+.sccsMap .chart2{ height: 200px; width: 400px; 
+  right:20px; top:20px; 
 }
 
-.sccsMap #chart2{ height: 200px; width: 400px; position: absolute;
-  right:20px; top:20px; background: rgba(0,0,0,0.4);
+
+.sccsMap .item{padding: 50px 10px 10px 10px; background: rgba(0,0,0,0.2); position: absolute;
+  border: 1px solid rgba(255,194,0,0.1); border-radius: 12px 12px 0 0; 
 }
+.sccsMap .item>h2{ position: absolute; top:0; left: 0; width: 100%; line-height: 40px;
+  line-height: 40px; background: rgba(255,194,0,1); color: #000; font-size: 16px;
+  padding-left: 10px; border-radius: 10px 10px 0 0; 
+}
+.sccsMap .item>div{ height: 100%; width: 100%;}
+
+

@@ -10,13 +10,23 @@
 
                 <p>数据展示3:<span>{{newData.value/10}}亿</span></p>
             </div>
-            <div class="go-map" ng-click="goMap(newData.data.name)">查看详情&nbsp;&gt;</div>
+            <div class="go-map" ng-click="goMap(newData.data)">查看详情&nbsp;&gt;</div>
         </div>
         <div class="move-tab-line" ng-style="style02" ng-click="stop($event)"></div>
         <div class="move-tab-line1" ng-style="style03" ng-click="stop($event)"></div>
     </div>
     <div id="mainChart" style="height:750px; " class="dashboard-map"></div>
 
-    <div id="chart1">   </div>
-    <div id="chart2">   </div>
+    <div class="chart1 item">
+        <h2>银行放款金额</h2>
+        <div id="chart1">
+
+        </div>
+    </div>
+    <div class="chart2 item">
+        <h2>银行放款笔数</h2>
+        <div id="chart2">
+
+        </div>
+    </div>
 </div>
