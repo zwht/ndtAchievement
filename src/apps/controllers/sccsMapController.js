@@ -4,13 +4,14 @@ qsDataAnalysisApp.controller("sccsMapController",
             $rootScope.showChang = true;
             var mapChart;
             $rootScope.bigTitle = "农贷通-成果展示";
+            intMap2();
+            intMap3();
+            createMap();
 
             $scope.goMap = function (name) {
                 var newName = angular.toJson(name);
                 $state.transitionTo("ndt.scscProvince", { province: newName });
             }
-
-
 
             $scope.toProvince = function (event) {
                 moveTab(event);
@@ -23,17 +24,17 @@ qsDataAnalysisApp.controller("sccsMapController",
 
                 $scope.style02 = {
                     left: event.event.event.layerX + "px",
-                    top: (event.event.event.layerY+98) + "px",
+                    top: (event.event.event.layerY) + "px",
                     display: "block"
                 };
                 $scope.style03 = {
                     left: (event.event.event.layerX + 99) + "px",
-                    top: (event.event.event.layerY + 99) + "px",
+                    top: (event.event.event.layerY + 1) + "px",
                     display: "block"
                 };
                 $scope.style01 = {
                     left: (event.event.event.layerX + 80) + "px",
-                    top: (event.event.event.layerY + 118) + "px",
+                    top: (event.event.event.layerY + 20) + "px",
                     display: "block"
                 };
                 $scope.newData = event;
@@ -288,11 +289,128 @@ qsDataAnalysisApp.controller("sccsMapController",
                 new zMap("chengdu", $('#mainChart')[0], arr);
             }
 
-            createMap();
+
 
             document.onclick = function () {
                 $scope.style03 = $scope.style02 = $scope.style01 = { display: "none" };
 
                 $scope.$apply();
+            }
+
+
+            function intMap3() {
+                var jiaoyiTJ = echarts.init(document.getElementById('chart1'));
+                var jyOption = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    grid: {
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0
+                    },
+
+                    series: [{
+                        name: '今日交易',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '50%'],
+                        data: [{
+                            value: 335,
+                            name: '农业'
+                        }, {
+                            value: 310,
+                            name: '牧业'
+                        }, {
+                            value: 234,
+                            name: '畜业'
+                        }, {
+                            value: 135,
+                            name: '林业'
+                        }, {
+                            value: 1548,
+                            name: '其他'
+                        }],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            },
+                            normal: {
+                                label: {
+                                    show: true,
+                                    formatter: '{b}:{c}'
+                                },
+                                labelLine: {
+                                    show: true
+                                }
+                            }
+                        }
+                    }]
+                }
+                jiaoyiTJ.setOption(jyOption);
+
+
+            }
+
+            function intMap2() {
+                var LeiJiXM = echarts.init(document.getElementById('chart2'));
+
+                var ljOption = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '0%',
+                        containLabel: true
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        data: ['一月', '二月', '三月', '四月'],
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }
+                    }],
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        },
+                        splitLine: {
+                            show: false
+                        }
+                    }],
+                    series: [{
+                        name: '重点项目',
+                        type: 'bar',
+                        data: [320, 332, 301, 334]
+                    }, {
+                        name: '补贴项目',
+                        type: 'bar',
+                        data: [120, 132, 101, 134]
+                    }, {
+                        name: '申请融资项目',
+                        type: 'bar',
+                        data: [220, 182, 191, 234]
+                    }, {
+                        name: '融资成功项目',
+                        type: 'bar',
+                        data: [150, 232, 201, 154]
+                    }]
+                };
+                LeiJiXM.setOption(ljOption);
             }
         }]);

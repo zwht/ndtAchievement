@@ -1,0 +1,8 @@
+.sccsMap{ height: 100%; width: 100%; position: relative;}
+.sccsMap #chart1{ height: 300px; width: 300px; position: absolute;
+  left:20px; top:20px; background: rgba(0,0,0,0.4);
+}
+
+.sccsMap #chart2{ height: 200px; width: 400px; position: absolute;
+  right:20px; top:20px; background: rgba(0,0,0,0.4);
+}
