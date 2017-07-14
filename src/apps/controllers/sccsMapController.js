@@ -3,15 +3,17 @@ qsDataAnalysisApp.controller("sccsMapController",
         function ($scope, $http, $rootScope, $state, chartService) {
             $rootScope.showChang = true;
             var mapChart;
-            $rootScope.bigTitle = "农贷通-成果展示";
-            intMap1();
-            intMap2();
+            $rootScope.bigTitle = "农贷通大数据";
+            initChart1();
+            initChart2();
+            initChart3();
+            initChart4();
             createMap();
 
 
 
             $scope.goMap = function (data) {
-                $state.transitionTo("ndt.scscProvince", { name: data.name,name1:data.name1,id:data.id });
+                $state.transitionTo("ndt.scscProvince", { name: data.name, name1: data.name1, id: data.id });
             }
 
             $scope.toProvince = function (event) {
@@ -50,136 +52,136 @@ qsDataAnalysisApp.controller("sccsMapController",
                 var arr = [
                     {
                         name: "天府新区",
-                        name1:"tianfu",
+                        name1: "tianfu",
                         value: 3,
                         url: "510110"
                     },
                     {
                         name: "高新区",
-                        name1:"gaoxin",
+                        name1: "gaoxin",
                         value: 3,
                         url: "510199"
                     },
 
                     {
                         name: "双流区",
-                        name1:"shuangliu",
+                        name1: "shuangliu",
                         value: 3,
                         url: "510122"
                     },
                     {
                         name: "郫都区",
-                        name1:"pidu",
+                        name1: "pidu",
                         value: 3,
-                         url: "510124"
+                        url: "510124"
                     },
                     {
                         name: "青白江区",
-                        name1:"qingbai",
+                        name1: "qingbai",
                         value: 3,
                         url: "510113"
                     },
                     {
                         name: "龙泉驿区",
-                        name1:"longquan",
+                        name1: "longquan",
                         value: 3,
                         url: "510112"
                     },
                     {
                         name: "温江区",
-                        name1:"wenjiang",
+                        name1: "wenjiang",
                         value: 3,
                         url: "510115"
                     },
                     {
                         name: "新都区",
-                        name1:"xindu",
+                        name1: "xindu",
                         value: 3,
                         url: "510114"
                     },
                     {
                         name: "崇州市",
-                        name1:"chonzhou",
+                        name1: "chonzhou",
                         value: 3,
                         url: "510184"
                     },
                     {
                         name: "彭州市",
-                        name1:"pengzhou",
+                        name1: "pengzhou",
                         value: 3,
                         url: "510182"
                     },
                     {
                         name: "都江堰市",
-                        name1:"dujiang",
+                        name1: "dujiang",
                         value: 3,
                         url: "510181"
                     },
 
                     {
                         name: "邛崃市",
-                        name1:"qionglai",
+                        name1: "qionglai",
                         value: 3,
                         url: "510183"
                     },
                     {
                         name: "新津县",
-                        name1:"xinjin",
+                        name1: "xinjin",
                         value: 3,
                         url: "510132"
                     },
                     {
                         name: "蒲江县",
-                        name1:"pujiang",
+                        name1: "pujiang",
                         value: 3,
                         url: "510131"
                     },
                     {
                         name: "大邑县",
-                        name1:"daba",
+                        name1: "daba",
                         value: 3,
                         url: "510129"
                     },
                     {
                         name: "金堂县",
-                        name1:"jintang",
+                        name1: "jintang",
                         value: 3,
                         url: "510121"
                     },
                     {
                         name: "简阳市",
-                        name1:"jianyang",
+                        name1: "jianyang",
                         value: 3,
                         url: "510188"
                     },
 
                     {
                         name: "金牛区",
-                        name1:"jingniu",
+                        name1: "jingniu",
                         value: 1,
                         url: "510188"
                     },
                     {
                         name: "青羊区",
-                        name1:"qingyang",
+                        name1: "qingyang",
                         value: 2,
                         url: "510188"
                     },
                     {
                         name: "锦江区",
-                        name1:"jinjiang",
+                        name1: "jinjiang",
                         value: 3,
                         url: "510188"
                     },
                     {
                         name: "武侯区",
-                        name1:"wuhou",
+                        name1: "wuhou",
                         value: 3,
                         url: "510188"
                     },
                     {
                         name: "成华区",
-                        name1:"chenghua",
+                        name1: "chenghua",
                         value: 3,
                         url: "510188"
                     }
@@ -322,70 +324,44 @@ qsDataAnalysisApp.controller("sccsMapController",
             }
 
 
-            function intMap2() {
-                getData('lendingSum', function (data1) {
+            function initChart1() {
+                getData('lendingAmt', function (data1) {
 
-                    debugger
-                })
-                var jiaoyiTJ = echarts.init(document.getElementById('chart1'));
-                var jyOption = {
-                    tooltip: {
-                        trigger: 'item',
-                        formatter: "{a} <br/>{b} : {c} ({d}%)"
-                    },
-                    grid: {
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0
-                    },
+                    //debugger
+                    var xData = [];
+                    for (item in data1.data[0].keyvalues) {
+                        xData.push({ value: data1.data[0].keyvalues[item], name: item });
+                    }
 
-                    series: [{
-                        name: '今日交易',
-                        type: 'pie',
-                        radius: '55%',
-                        center: ['50%', '50%'],
-                        data: [{
-                            value: 335,
-                            name: '农业'
-                        }, {
-                            value: 310,
-                            name: '牧业'
-                        }, {
-                            value: 234,
-                            name: '畜业'
-                        }, {
-                            value: 135,
-                            name: '林业'
-                        }, {
-                            value: 1548,
-                            name: '其他'
-                        }],
-                        itemStyle: {
-                            emphasis: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            },
-                            normal: {
-                                label: {
-                                    show: true,
-                                    formatter: '{b}:{c}'
-                                },
-                                labelLine: {
-                                    show: true
-                                }
+
+                    var option = {
+
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        series: [
+                            {
+                                name: '放款总数',
+                                type: 'pie',
+
+                                radius: ['60%', '80%'],
+                                center: ['50%', '60%'],
+                                data: xData
                             }
-                        }
-                    }]
-                }
-                jiaoyiTJ.setOption(jyOption);
+                        ]
+                    };
+
+                    var jiaoyiTJ = echarts.init(document.getElementById('chart1'));
+                    jiaoyiTJ.setOption(option);
+                })
+
 
 
             }
 
-            function intMap1() {
-                getData('lendingAmt', function (data1) {
+            function initChart2() {
+                getData('acquisitOrgSum', function (data1) {
                     var xData = [];
                     var data = [];
                     for (item in data1.data[0].keyvalues) {
@@ -406,7 +382,7 @@ qsDataAnalysisApp.controller("sccsMapController",
                             left: '1%',
                             right: '1%',
                             bottom: '4%',
-                            top: '4%',
+                            top: '40px',
                             containLabel: true
                         },
                         xAxis: [{
@@ -432,6 +408,34 @@ qsDataAnalysisApp.controller("sccsMapController",
                         series: [{
                             name: '放款金额',
                             type: 'bar',
+                            markPoint: {
+                                data: [
+                                    { type: 'max', name: '最大值' },
+                                    { type: 'min', name: '最小值' }
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    { type: 'average', name: '平均值' }
+                                ]
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: function (params) {
+                                        // build a color map as your need.
+                                        var colorList = [
+                                            '#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+                                            '#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                                            '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                                        ];
+                                        return colorList[params.dataIndex]
+                                    }, label: {
+                                        show: true,
+                                        position: 'top',
+                                        formatter: '{c}'
+                                    }
+                                }
+                            },
                             data: data
                         }]
                     };
@@ -440,6 +444,129 @@ qsDataAnalysisApp.controller("sccsMapController",
 
             }
 
+            function initChart3() {
+                getData('acquisitOrgSum', function (data1) {
+
+                    //debugger
+                    var xData = [];
+                    for (item in data1.data[0].keyvalues) {
+                        xData.push({ value: data1.data[0].keyvalues[item], name: item });
+                    }
+
+                    var option = {
+                        grid: {
+                            left: '1%',
+                            right: '1%',
+                            bottom: '4%',
+                            top: '40px',
+                            containLabel: true
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        series: [
+                            {
+                                name: '补放款金额',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['60%', '60%'],
+                                data: xData,
+                                itemStyle: {
+                                    emphasis: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            }
+                        ]
+                    };
+
+                    var fk1 = echarts.init(document.getElementById('chart3'));
+                    fk1.setOption(option);
+
+                })
+
+
+            }
+
+            function initChart4() {
+
+
+                getData('regSum', function (data1) {
+                    var xData = [];
+                    var data = [];
+                    for (item in data1.data[0].keyvalues) {
+                        xData.push(item);
+                        data.push(data1.data[0].keyvalues[item])
+                    }
+
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '1%',
+                            right: '1%',
+                            bottom: '4%',
+                            top: '40px',
+                            containLabel: true
+                        },
+                        xAxis: [{
+                            type: 'category',
+                            data: xData,
+                            axisLabel: {
+                                textStyle: {
+                                    color: "#fff"
+                                }
+                            }
+                        }],
+                        yAxis: [{
+                            type: 'value',
+                            axisLabel: {
+                                textStyle: {
+                                    color: "#fff"
+                                }
+                            },
+                            splitLine: {
+                                show: false
+                            }
+                        }],
+                        series: [{
+                            name: '注册人数',
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: function (params) {
+                                        // build a color map as your need.
+                                        var colorList = [
+                                            '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                                            '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0',
+                                            '#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+                                            '#FE8463'
+                                        ];
+                                        return colorList[params.dataIndex]
+                                    }, label: {
+                                        show: true,
+                                        position: 'top',
+                                        formatter: '{c}'
+                                    }
+                                }
+                            },
+                            data: data
+                        }]
+                    }
+                    var fk1 = echarts.init(document.getElementById('chart4'));
+                    fk1.setOption(option);
+
+                })
+
+
+            }
 
             function getData(type, call) {
                 chartService.getChartData({}, { type: type },

@@ -1,19 +1,36 @@
 .sccsMap{ height: 100%; width: 100%; position: relative;}
-.sccsMap .chart1{ height: 300px; width: 300px; 
-  left:20px; top:20px; 
-}
-.sccsMap .chart2{ height: 200px; width: 400px; 
-  right:20px; top:20px; 
-}
 
+.sccsMap .item{ position: absolute;
 
-.sccsMap .item{padding: 50px 10px 10px 10px; background: rgba(0,0,0,0.2); position: absolute;
-  border: 1px solid rgba(255,194,0,0.1); border-radius: 12px 12px 0 0; 
 }
 .sccsMap .item>h2{ position: absolute; top:0; left: 0; width: 100%; line-height: 40px;
-  line-height: 40px; background: rgba(255,194,0,1); color: #000; font-size: 16px;
-  padding-left: 10px; border-radius: 10px 10px 0 0; 
+  line-height: 40px;  color: #fff000; font-size: 16px;
+  padding-left: 10px;  text-align: center;
 }
+
+.sccsMap .chart1{ height: 35%; width: 25%;
+  left:15%; top:20px;  padding-top: 50px;
+}
+.sccsMap .chart2{ height: 35%; width: 30%;
+  right:20px; top:20px; 
+}
+.sccsMap .chart3{height: 45%; width: 30%; 
+  right:20px; bottom:20px; }
+
+.sccsMap .chart4{height: 45%; width: 30%; 
+  left:20px; bottom:20px; }
+  .sccsMap .chart4>h2{ text-align: left;}
+
+
+.sccsMap .chart5{height: 25%; width: 20%;
+  left:20px; top:20px; color: #fff; padding: 10px;
+  line-height:40px;
+}
+.sccsMap .chart5 span{ color: #888;}
+
+
+
 .sccsMap .item>div{ height: 100%; width: 100%;}
+.sccsMap .dashboard-map{height:100%;}
 
 
